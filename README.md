@@ -11,13 +11,14 @@ My implementation uses **Hexagonal Architecture** (Ports and Adapters) to separa
 *   **Automatic Serialization**: Handlers return POJO objects (Records), which AWS Lambda automatically serializes to JSON.
 *   **Geocoding Integration**: To fulfill the requirement of providing a city name, I integrated the Open-Meteo Geocoding API.
 ## 3. Unit Testing Strategy
-The code is designed for testing without real API calls or AWS deployment:
-*   **Mocking**: Using **Mockito** library to mock the `WeatherProviderPort` and simulate various temperatures.
+The architecture allows for testing without real API calls.
+*   **Mocking**: Using **Mockito** library to mock the `WeatherProviderPort` and simulate various temperatures and API scenarios without making actual HTTP requests.
 *   **Domain Tests**: The `TemperatureCategory` enum and `WeatherService` can be tested in isolation to verify classification ranges.
+    
 ## 4. Endpoint Information (Task 3)
 *   **Publicly Accessible URL**: `https://cdpshco5bikdk4aygrmjoxb6g40mxyeg.lambda-url.us-east-1.on.aws`
 *   **GET Parameter**: `city`
-*   **Example Request**: `https://cdpshco5bikdk4aygrmjoxb6g40mxyeg.lambda-url.us-east-1.on.aws/?city=Wroclaw`
+*   **Example Request**: `https://cdpshco5bikdk4aygrmjoxb6g40mxyeg.lambda-url.us-east-1.on.aws?city=Wroclaw`
 
 
 ## 5. Design Reflection (Task 4)
@@ -38,6 +39,6 @@ You can find all required screenshots in the `doc/` directory:
 ### Task 2: City Parameter Extension
 *   **Test City 1 - Kielce**:![Test Sample 2](doc/TestSample2.png)
 *   **Test City 2 - Berlin**: ![Test Sample 3](doc/TestSample3.png)
-### FUNCTION URL
+### Task 3: FUNCTION URL
 *   **Function URL City 1 - Warszawa**: ![Test Sample 2](doc/FunctionURLSample.png)
 *   **Function URL 2 - Wiedeń**: ![Test Sample 3](doc/FunctionURLSample2.png)
