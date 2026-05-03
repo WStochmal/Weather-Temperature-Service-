@@ -15,7 +15,8 @@ public class Task2LambdaHandler implements RequestHandler<String, Object>  {
 		MeteoClient meteoClient = new MeteoClient();
 		this.weatherService = new WeatherService(meteoClient);
 	}
-
+	
+	@Override
 	public Object handleRequest(String input, Context context) {
 		try {
 			// 1. Validate city input
