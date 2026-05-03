@@ -9,11 +9,12 @@ My implementation uses **Hexagonal Architecture** (Ports and Adapters) to separa
     *   `Task2LambdaHandler`: For direct console/typed input.
     *   `Task3LambdaHandler`: For AWS Function URL (handles HTTP proxy events and query params).
 *   **Automatic Serialization**: Handlers return POJO objects (Records), which AWS Lambda automatically serializes to JSON.
+*   **Geocoding Integration**: To fulfill the requirement of providing a city name, I integrated the Open-Meteo Geocoding API.
 ## 3. Unit Testing Strategy
 The code is designed for testing without real API calls or AWS deployment:
 *   **Mocking**: Using **Mockito** library to mock the `WeatherProviderPort` and simulate various temperatures.
 *   **Domain Tests**: The `TemperatureCategory` enum and `WeatherService` can be tested in isolation to verify classification ranges.
-## 4. Task 3: Endpoint Information
+## 4. Endpoint Information (Task 3)
 *   **Publicly Accessible URL**: `https://cdpshco5bikdk4aygrmjoxb6g40mxyeg.lambda-url.us-east-1.on.aws`
 *   **GET Parameter**: `city`
 *   **Example Request**: `https://cdpshco5bikdk4aygrmjoxb6g40mxyeg.lambda-url.us-east-1.on.aws/?city=Wroclaw`
