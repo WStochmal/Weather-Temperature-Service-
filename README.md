@@ -1,7 +1,7 @@
 # Weather Temperature Service (AWS Lambda)
 
 ## 1. Solution Description
-My implementation uses **Hexagonal Architecture** (Ports and Adapters) to separate business logic from AWS infrastructure and external APIs. The solution consists of a core domain for temperature categorization, an outbound adapter for **Open-Meteo API**, and two specialized inbound Lambda handlers.
+My implementation uses **Hexagonal Architecture** (Ports and Adapters) to separate business logic from lambda handlers and external APIs. The project is structured into a core domain for temperature categorization, an outbound adapter for **Open-Meteo API**, and two specialized inbound Lambda handlers.
 ## 2. Key Design Decisions
 *   **Hexagonal Architecture**: Used to ensure the core logic is independent of external providers.
 *   **Separation of Concerns**: Classification logic is isolated in the domain layer; handlers only orchestrate the flow.
@@ -9,7 +9,6 @@ My implementation uses **Hexagonal Architecture** (Ports and Adapters) to separa
     *   `Task2LambdaHandler`: For direct console/typed input.
     *   `Task3LambdaHandler`: For AWS Function URL (handles HTTP proxy events and query params).
 *   **Automatic Serialization**: Handlers return POJO objects (Records), which AWS Lambda automatically serializes to JSON.
-*   **Port-Adapter Decoupling**: Interface-based design allows swapping weather providers without touching business logic.
 ## 3. Unit Testing Strategy
 The code is designed for testing without real API calls or AWS deployment:
 *   **Mocking**: Using **Mockito** library to mock the `WeatherProviderPort` and simulate various temperatures.
@@ -21,7 +20,7 @@ The code is designed for testing without real API calls or AWS deployment:
 
 
 ## 5. Design Reflection (Task 4)
-The use of **Hexagonal Architecture** allows adding new providers by simply creating a new adapter class. The core domain remains untouched.
+The Hexagonal approach enables adding new providers by simply creating a new adapter class. The core domain remains untouched.
 
 **What I would improve (Future Improvements):**
 
