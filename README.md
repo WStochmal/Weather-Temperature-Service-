@@ -40,4 +40,4 @@ You can find all required screenshots in the `doc/` directory:
 *   **Test City 2 - Berlin**: ![Test Sample 3](doc/TestSample3.png)
 ### FUNCTION URL
 *   **Function URL City 1 - Warszawa**: ![Test Sample 2](doc/FunctionURLSample.png)
-*   **Function URL 2 - Wiedeń**: ![Test Sample 3](doc/TestSample3.png)
+*   **Function URL 2 - Wiedeń**: ![Test Sample 3](doc/FunctionURLSample2.png)
