@@ -17,12 +17,12 @@ public class WeatherService implements GetWeatherInfoUseCase {
     public WeatherInfo getWeatherInfo(String city) {
 
         // 1. Fetch temperature from the weather provider
-        double temperature = weatherProviderPort.getCurrentTemperature();
+        double temperature = weatherProviderPort.getCurrentTemperature(city);
 
         // 2. Categorize the temperature
         TemperatureCategory category = TemperatureCategory.categorizeTemperature(temperature);
 
         // 3. Return the weather info
-        return new WeatherInfo(city, temperature, category);
+        return new WeatherInfo(city, temperature, category.getLabel());
     }
 }

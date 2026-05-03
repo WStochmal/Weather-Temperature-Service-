@@ -1,5 +1,5 @@
 package weather.port.outbound;
 
 public interface WeatherProviderPort {
-    double getCurrentTemperature();
+    double getCurrentTemperature(String city);
 }
